@@ -1,0 +1,4 @@
+.container img {
+  filter: brightness(50%);
+  border-radius: 20px;
+}
