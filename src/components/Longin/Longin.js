@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {
+  useAuthState,
+  useSignInWithEmailAndPassword,
+} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Longin = () => {
@@ -9,8 +12,11 @@ const Longin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, user1, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [user] = useAuthState(auth);
+
   // get input value
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -20,8 +26,10 @@ const Longin = () => {
   };
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   if (user) {
-    navigate('/home');
+    navigate(from, { replace: true });
   }
 
   const handleLogIn = (e) => {
