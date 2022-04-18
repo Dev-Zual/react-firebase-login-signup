@@ -6,7 +6,9 @@ import {
   useSignInWithEmailAndPassword,
 } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import SignGoogle from '../SignGoogle/SignGoogle';
+
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import googlImg from '../../images/google.png';
 
 const Longin = () => {
   const [validated, setValidated] = useState(false);
@@ -47,6 +49,12 @@ const Longin = () => {
     }
 
     setValidated(true);
+  };
+
+  const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+
+  const createUserWithGoogle = () => {
+    signInWithGoogle();
   };
 
   return (
@@ -104,7 +112,15 @@ const Longin = () => {
           </Link>
         </p>
       </div>
-      <SignGoogle></SignGoogle>
+      <div>
+        <button
+          className="d-flex align-items-center btn btn-secondary"
+          onClick={createUserWithGoogle}
+        >
+          <img style={{ width: '50px' }} src={googlImg} alt="" />
+          <p>SignIn with google</p>
+        </button>
+      </div>
     </div>
   );
 };
