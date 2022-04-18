@@ -1,0 +1,23 @@
+[
+  {
+    "id": "625d0b301c9c7bd78b73c1e9",
+    "price": "$305.98",
+    "picture": "https://i.ibb.co/cQrDqxB/service1.jpg",
+    "name": "MUSCLE BUILD PRO",
+    "description": "Veniam ullamco aute laboris aliquip. Fugiat qui aute et ullamco amet consequat duis mollit in. Ea occaecat excepteur eu mollit fugiat proident magna occaecat excepteur tempor amet laboris incididunt. Duis eiusmod duis incididunt esse."
+  },
+  {
+    "id": "625d0b30850fbdd6c640b969",
+    "price": "$519.40",
+    "picture": "https://i.ibb.co/5WDK6z6/service3.jpg",
+    "name": "WOMEN STRENGTH TRAINING",
+    "description": "Culpa aliquip laborum nostrud dolore velit culpa ullamco consectetur irure aute mollit irure. Do nisi cupidatat commodo nulla elit. Aute ex nulla culpa nostrud nulla aute proident sint quis. Magna nulla deserunt irure est anim."
+  },
+  {
+    "id": "625d0b30680c29cc7db6eda4",
+    "price": "$386.63",
+    "picture": "https://i.ibb.co/ZfPLvYg/service2.jpg",
+    "name": "FAT BURNING PRO",
+    "description": "Proident eu ex adipisicing sit. Excepteur exercitation ea cillum velit consectetur eu excepteur incididunt labore eu ut. Lorem commodo mollit aliqua fugiat proident minim occaecat velit minim nisi incididunt et pariatur. Amet proident laboris mollit labore est magna eiusmod culpa tempor. Nisi laborum dolore consectetur tempor eiusmod ut cupidatat occaecat Lorem aliquip elit do officia qui."
+  }
+]

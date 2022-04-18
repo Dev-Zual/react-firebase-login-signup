@@ -8,6 +8,7 @@ const Signup = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error1, setError1] = useState('');
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -15,6 +16,11 @@ const Signup = () => {
   if (user) {
     navigate('/home');
   }
+
+  if (error) {
+    setError1(error.message);
+  }
+
   // get input value
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -79,7 +85,7 @@ const Signup = () => {
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
-
+        {/* <p>{error1}</p> */}
         <Button onClick={handleSignUpWithEmailPass} type="submit">
           Sign Up
         </Button>

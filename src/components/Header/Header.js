@@ -5,12 +5,17 @@ import CustomLink from '../CustomLink/CustomLink';
 import './Header.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
+  // console.log(user);
+  const logOut = () => {
+    signOut(auth);
+  };
   return (
     <Navbar bg="primary" variant="dark">
       <Container>
-        <Navbar.Brand to="/">Fitness Zone</Navbar.Brand>
+        <Navbar.Brand to="/">GYM TRAINER</Navbar.Brand>
         <Nav className="me-auto nav-item">
           <CustomLink to="/home">Home</CustomLink>
           <CustomLink to="/about">About</CustomLink>
@@ -18,8 +23,20 @@ const Header = () => {
         </Nav>
 
         <Nav className="nav-item">
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <>{user && <p className="text-white">{user.email}</p>}</>
+          {user ? (
+            <button
+              onClick={logOut}
+              className="btn btn-link log-out text-white"
+            >
+              Log Out
+            </button>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </>
+          )}
         </Nav>
       </Container>
     </Navbar>
