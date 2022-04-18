@@ -11,23 +11,23 @@ const Slider = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={img2} alt="First slide" />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h1>KEEP YOUT BODY FIT & STRONG</h1>
+            <p>WITH MD. ZUAL RANA</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={img1} alt="Second slide" />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h1>HACK OF A BODY LIKE MD. ZUAL RANA</h1>
+            <p>EXERCICE SMARTER, FEEL BETTER. LIVE LONGER</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={img3} alt="Third slide" />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>BECOME YOUR STRONGEST SELF</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
