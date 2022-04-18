@@ -8,6 +8,8 @@ import Blog from './components/Blog/Blog';
 import Notfound from './components/Notfound/Notfound';
 import Longin from './components/Longin/Longin';
 import Signup from './components/Signup/Signup';
+import Checkout from './components/Checkout/Checkout';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -20,6 +22,14 @@ function App() {
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/login" element={<Longin></Longin>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <Checkout></Checkout>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
       <Footer></Footer>
