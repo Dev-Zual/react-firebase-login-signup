@@ -4,7 +4,7 @@
 
 Repsitory Link: [https://github.com/programming-hero-web-course-4/independent-service-provider-Dev-Zual](https://github.com/programming-hero-web-course-4/independent-service-provider-Dev-Zual)
 
-### Technology i used.
+### `Technology i used.`
 
 - React Router
 - Bootstrap

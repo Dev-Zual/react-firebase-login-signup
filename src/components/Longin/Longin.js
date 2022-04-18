@@ -18,7 +18,16 @@ const Longin = () => {
   const [signInWithEmailAndPassword, user1, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  const [user] = useAuthState(auth);
+  const [user, loading1, error1] = useAuthState(auth);
+  let errorElement;
+  if (error || error1) {
+    errorElement = (
+      <p className="text-danger">
+        {error?.message}
+        {error1?.message}
+      </p>
+    );
+  }
 
   // get input value
   const handleEmail = (e) => {
@@ -31,7 +40,7 @@ const Longin = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
-  if (user) {
+  if (user || user1) {
     navigate(from, { replace: true });
   }
 
@@ -102,6 +111,7 @@ const Longin = () => {
           Log In
         </Button>
       </Form>
+      <p>{errorElement}</p>
       <div className="mt-4 d-flex align-items-center">
         <p>Don't have an acount?</p>
         <p>
