@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
@@ -18,6 +18,11 @@ const Longin = () => {
   const handlePass = (e) => {
     setPassword(e.target.value);
   };
+
+  const navigate = useNavigate();
+  if (user) {
+    navigate('/home');
+  }
 
   const handleLogIn = (e) => {
     e.preventDefault();
