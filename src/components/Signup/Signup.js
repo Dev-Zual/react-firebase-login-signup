@@ -1,12 +1,31 @@
 import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
 const Signup = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  if (user) {
+    navigate('/home');
+  }
+  // get input value
   const handleEmail = (e) => {
-    console.log(e.target.value);
+    setEmail(e.target.value);
+  };
+  const handlePass = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSignUpWithEmailPass = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(email, password);
   };
 
   // bootstrap form validation
@@ -50,6 +69,7 @@ const Signup = () => {
           >
             <Form.Label>Your password</Form.Label>
             <Form.Control
+              onBlur={handlePass}
               type="password"
               placeholder="Your password"
               required
@@ -60,16 +80,20 @@ const Signup = () => {
           </Form.Group>
         </Row>
 
-        <Button type="submit">Sign Up</Button>
+        <Button onClick={handleSignUpWithEmailPass} type="submit">
+          Sign Up
+        </Button>
       </Form>
-      <p className="mt-4">
-        Already have an acount?
-        <Link to="/login">
-          <button className="btn btn-link text-decoration-none">
-            Please Login here
-          </button>
-        </Link>
-      </p>
+      <div className="mt-4 d-flex align-items-center">
+        <p>Already have an acount?</p>
+        <p>
+          <Link to="/login">
+            <button className="btn btn-link text-decoration-none">
+              Please Login here
+            </button>
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

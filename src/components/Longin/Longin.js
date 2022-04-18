@@ -1,9 +1,28 @@
 import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Longin = () => {
   const [validated, setValidated] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  // get input value
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePass = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(email, password);
+  };
 
   // bootstrap form validation
   const handleSubmit = (event) => {
@@ -28,7 +47,7 @@ const Longin = () => {
           >
             <Form.Label>Your eamil</Form.Label>
             <Form.Control
-              //   onBlur={handleEmail}
+              onBlur={handleEmail}
               type="email"
               placeholder="Your email"
               required
@@ -46,6 +65,7 @@ const Longin = () => {
             <Form.Label>Your password</Form.Label>
             <Form.Control
               type="password"
+              onBlur={handlePass}
               placeholder="Your password"
               required
             />
@@ -55,16 +75,20 @@ const Longin = () => {
           </Form.Group>
         </Row>
 
-        <Button type="submit">Sign Up</Button>
+        <Button onClick={handleLogIn} type="submit">
+          Log In
+        </Button>
       </Form>
-      <p className="mt-4">
-        Don't have an acount?
-        <Link to="/signup">
-          <p className="btn btn-link text-decoration-none">
-            Please sign up here
-          </p>
-        </Link>
-      </p>
+      <div className="mt-4 d-flex align-items-center">
+        <p>Don't have an acount?</p>
+        <p>
+          <Link to="/signup">
+            <button className="btn btn-link text-decoration-none">
+              Please sign up here
+            </button>
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
