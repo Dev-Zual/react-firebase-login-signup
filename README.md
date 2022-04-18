@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# GYM TRAINER WEBSITE
 
 [Repository Link](https://github.com/programming-hero-web-course-4/independent-service-provider-Dev-Zual).
 
