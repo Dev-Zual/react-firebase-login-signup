@@ -6,6 +6,7 @@ import {
   useSignInWithEmailAndPassword,
 } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import SignGoogle from '../SignGoogle/SignGoogle';
 
 const Longin = () => {
   const [validated, setValidated] = useState(false);
@@ -47,6 +48,7 @@ const Longin = () => {
 
     setValidated(true);
   };
+
   return (
     <div className="w-50 mx-auto">
       <h2 className="text-center mt-5">Log In</h2>
@@ -102,6 +104,7 @@ const Longin = () => {
           </Link>
         </p>
       </div>
+      <SignGoogle></SignGoogle>
     </div>
   );
 };
