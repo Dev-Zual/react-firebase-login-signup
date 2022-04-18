@@ -14,8 +14,8 @@ const Header = () => {
           <CustomLink to="/blog">Blog</CustomLink>
         </Nav>
         <Nav className="nav-item">
-          <Link to="#home">Login</Link>
-          <Link to="#features">Sing Up</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
         </Nav>
       </Container>
     </Navbar>

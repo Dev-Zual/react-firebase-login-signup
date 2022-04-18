@@ -6,15 +6,19 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Blog from './components/Blog/Blog';
 import Notfound from './components/Notfound/Notfound';
+import Longin from './components/Longin/Longin';
+import Signup from './components/Signup/Signup';
 
 function App() {
   return (
-    <div>
+    <div className="app-js-css">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
+        <Route path="/login" element={<Longin></Longin>}></Route>
+        <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
       <Footer></Footer>
